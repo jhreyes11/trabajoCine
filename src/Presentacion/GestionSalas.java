@@ -114,7 +114,7 @@ public class GestionSalas extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        AgregarSala frmAgregarSala=new AgregarSala();
+        AgregarSala frmAgregarSala=new AgregarSala();        
         frmAgregarSala.setFrmGestionSalas(this);
         frmAgregarSala.setVisible(true);
         this.setVisible(false);        
@@ -128,6 +128,10 @@ public class GestionSalas extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+        EliminarSala frmEliminarSala=new EliminarSala();
+        frmEliminarSala.setFrmGestionSalas(this);
+        frmEliminarSala.setVisible(true);
+        this.setVisible(false);
         
     }//GEN-LAST:event_jButton2ActionPerformed
 

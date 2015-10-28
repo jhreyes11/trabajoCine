@@ -28,7 +28,7 @@ public class Sala {
         this.sillas = sillas;
     }
 
-    public Sala(String Tipo, float PrecioEntrada, int numero) {
+    public Sala(String Tipo, int numero) {
         this.Tipo = Tipo;
         this.PrecioEntrada = PrecioEntrada;
         this.numero = numero;

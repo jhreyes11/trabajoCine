@@ -19,15 +19,14 @@ public class Cine {
     private int numeroSalas2D = 2;
 
     public Cine() {
+        salas=new ArrayList<>();
+        peliculas=new ArrayList<>();
     }
 
-    public boolean agregarSala(String tipo, float precioEntrada, int numero) {
-        if (salas.size() < 4 && contarTipoSala(tipo)) {
-            Sala sala = new Sala(tipo, precioEntrada, numero);
-            salas.add(sala);
+    public boolean agregarSala(String tipo, int numero) {        
+            Sala sala = new Sala(tipo, numero);
+            salas.add(sala);            
             return true;
-        }
-        return false;
     }
 
     public boolean eliminarSala(int numeroSala) {
@@ -110,5 +109,15 @@ public class Cine {
             }
         }
         return -1;
-    } 
+    }
+
+    public ArrayList<Sala> getSalas() {
+        return salas;
+    }
+
+    public void setSalas(ArrayList<Sala> salas) {
+        this.salas = salas;
+    }
+    
+    
 }
