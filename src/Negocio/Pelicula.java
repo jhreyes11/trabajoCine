@@ -10,14 +10,24 @@ package Negocio;
  * @author Jhon
  */
 public class Pelicula {
+
     private String nombre;
     private String duracion;
     private String genero;
+    private int numeroSala;
+    private String formato;
 
-    public Pelicula(String nombre, String duracion, String genero) {
+    public Pelicula(String nombre, String duracion, String genero, String formato, int numeroSala) {
         this.nombre = nombre;
         this.duracion = duracion;
         this.genero = genero;
+        this.numeroSala = numeroSala;
+        this.formato = formato;
+    }
+
+    public String tostring() {
+        String cadena = "Nombre: " + this.nombre + "\nDuración: " + this.duracion + "\nGénero: " + this.genero + "\nFormato: " + this.formato + "\nNumero de sala: " + this.numeroSala;
+        return cadena;
     }
 
     public String getNombre() {
@@ -43,10 +53,21 @@ public class Pelicula {
     public void setGenero(String genero) {
         this.genero = genero;
     }
-    
-    public String tostring() {
-        String cadena = "Nombre de la pelicula: " + this.nombre + "\nDuración de la película: " + this.duracion + "\nGénero de la película: " + this.genero;
-        return cadena;
+
+    public int getNumeroSala() {
+        return numeroSala;
     }
-    
+
+    public void setNumeroSala(int numeroSala) {
+        this.numeroSala = numeroSala;
+    }
+
+    public String getFormato() {
+        return formato;
+    }
+
+    public void setFormato(String formato) {
+        this.formato = formato;
+    }
+
 }

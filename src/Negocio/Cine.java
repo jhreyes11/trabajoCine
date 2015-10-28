@@ -47,9 +47,9 @@ public class Cine {
         return "No existe una sala con el número insertado\n";
     }
     
-    public boolean agregarPelicula(String nombre, String duracion, String genero){
+    public boolean agregarPelicula(String nombre, String duracion, String genero, String formato, int numeroSilla){
         if(peliculas.size()<5){
-            Pelicula pel=new Pelicula(nombre,duracion,genero);
+            Pelicula pel=new Pelicula(nombre,duracion,genero,formato,numeroSilla);
             peliculas.add(pel);
             return true;
         }
@@ -66,7 +66,12 @@ public class Cine {
     }
    
     public String mostrarPelicula(String nombre){
-        nombre
+        int pos=buscarPelicula(nombre);
+        if(pos!=-1){
+            String pel=peliculas.get(pos).tostring();
+            return pel;
+        }
+        return "No se registró ninguna película con el nombre "+nombre;
     }
     
     public boolean contarTipoSala(String tipo) {
