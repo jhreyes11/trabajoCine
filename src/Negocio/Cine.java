@@ -15,7 +15,7 @@ public class Cine {
 
     private ArrayList<Pelicula> peliculas = new ArrayList<>();
     private ArrayList<Sala> salas = new ArrayList<>();
-    private int numeroSalas3D = 2; //para mejor escalabilidad
+    private int numeroSalas3D = 2; 
     private int numeroSalas2D = 2;
 
     public Cine() {
