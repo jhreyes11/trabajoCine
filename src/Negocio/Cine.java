@@ -15,16 +15,18 @@ public class Cine {
 
     private ArrayList<Pelicula> peliculas = new ArrayList<>();
     private ArrayList<Sala> salas = new ArrayList<>();
-    private int numeroSalas3D = 2; 
+    private ArrayList<Vendedor> vendedores = new ArrayList<>();
+    private int numeroSalas3D = 2;
     private int numeroSalas2D = 2;
 
     public Cine() {
         salas = new ArrayList<>();
         peliculas = new ArrayList<>();
+        vendedores = new ArrayList<>();
     }
 
     public boolean agregarSala(String tipo, int numero) {
-        if (contarTipoSala(tipo)){
+        if (contarTipoSala(tipo)) {
             Sala sala = new Sala(tipo, numero);
             salas.add(sala);
             return true;
@@ -50,7 +52,7 @@ public class Cine {
     }
 
     public boolean agregarPelicula(String nombre, String duracion, String genero, String formato, int numeroSala) throws Exception {
-        validarSala(formato,numeroSala);
+        validarSala(formato, numeroSala);
         if (peliculas.size() < 5) {
             Pelicula pel = new Pelicula(nombre, duracion, genero, formato, numeroSala);
             peliculas.add(pel);
@@ -75,6 +77,28 @@ public class Cine {
             return pel;
         }
         return "";
+    }
+
+    public void agregarVendedor(String apellido, String direccion, String telefono, int cedula) {
+        Vendedor v = new Vendedor(apellido, direccion, telefono, cedula);
+        vendedores.add(v);
+    }
+
+    public boolean eliminarVendedor(int cedula) {
+        int pos = buscarVendedor(cedula);
+        if (pos != -1) {
+            vendedores.remove(pos);
+            return true;
+        }
+        return false;
+    }
+
+    public String mostrarVendedor(int cedula) {
+        int pos = buscarVendedor(cedula);
+        if (pos != -1) {
+            return vendedores.get(pos).tostring();
+        }
+        return "El vendor no existe en el sistema";
     }
 
     public boolean contarTipoSala(String tipo) {
@@ -131,13 +155,22 @@ public class Cine {
         this.peliculas = peliculas;
     }
 
-    public void validarSala(String formato,int numero) throws Exception{
-        for(int i=0;i<salas.size();i++){
-            if(salas.get(i).getTipo().equals(formato) && salas.get(i).getNumero()==numero){
+    public void validarSala(String formato, int numero) throws Exception {
+        for (int i = 0; i < salas.size(); i++) {
+            if (salas.get(i).getTipo().equals(formato) && salas.get(i).getNumero() == numero) {
                 return;
             }
-            
+
         }
-        throw new Exception("La sala no soporta este formato");  
+        throw new Exception("La sala no soporta este formato");
+    }
+
+    public int buscarVendedor(int cedula) {
+        for (int i = 0; i < vendedores.size(); i++) {
+            if (cedula == vendedores.get(i).getCedula()) {
+                return i;
+            }
+        }
+        return -1;
     }
 }
