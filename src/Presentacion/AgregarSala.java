@@ -33,7 +33,7 @@ public class AgregarSala extends javax.swing.JFrame {
         for (Sala sala : salas) {
             existentes = existentes + sala.getNumero();            
         }        
-        for(int i=1;i<6;i++)
+        for(int i=1;i<5;i++)
         {
             if(existentes.contains(""+i)==false)
             {                
@@ -137,19 +137,20 @@ public class AgregarSala extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        try
+               
+        int numero=(int) cboxNumSala.getModel().getSelectedItem();            
+        if(frmGestionSalas.getFrmPrincipal().getCine().agregarSala((String) cboxTipoSala.getModel().getSelectedItem(), numero))
         {
-            int numero=(int) cboxNumSala.getModel().getSelectedItem();            
-            frmGestionSalas.getFrmPrincipal().getCine().agregarSala((String) cboxTipoSala.getModel().getSelectedItem(), numero);        
             JOptionPane.showMessageDialog(jButton1, "Sala agregada con exito !");
-            
+
             this.setVisible(false);
             frmGestionSalas.setVisible(true);
         }
-        catch(Exception ex)
+        else
         {
-            JOptionPane.showMessageDialog(jButton1,ex.getMessage());                        
-        } 
+            JOptionPane.showMessageDialog(jButton1, "No se pudo agregar. Solo pueden haber 2 salas "+(String) cboxTipoSala.getModel().getSelectedItem());
+        }
+               
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
