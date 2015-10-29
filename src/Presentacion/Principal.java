@@ -30,6 +30,10 @@ public class Principal extends javax.swing.JFrame {
     public Principal() {
         initComponents();
         cine=new Cine();
+        cine.agregarSala("2D",1);
+        cine.agregarSala("2D",2);
+        cine.agregarSala("3D",3);
+        cine.agregarSala("3D",4);
     }
 
     /**

@@ -97,11 +97,9 @@ public class Inicio extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Cine c=new Cine();
-        c.agregarSala("2D", 1);
-        c.agregarSala("2D", 2);
-        c.agregarSala("3D", 3);
-        c.agregarSala("3D", 4);
+        Principal frmAdmin=new Principal();
+        frmAdmin.setVisible(true);
+        this.setVisible(false);
         
 // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
