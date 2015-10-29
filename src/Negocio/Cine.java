@@ -81,7 +81,7 @@ public class Cine {
 
     public boolean agregarVendedor(String apellido, String direccion, String telefono, int cedula) {
         Vendedor v = new Vendedor(apellido, direccion, telefono, cedula);
-        if(buscarVendedor(cedula)!=-1){            
+        if(buscarVendedor(cedula)==-1){            
             vendedores.add(v);
             return true;
         }
@@ -106,7 +106,7 @@ public class Cine {
         if (pos != -1) {
             return vendedores.get(pos).tostring();
         }
-        return "El vendor no existe en el sistema";
+        return "";
     }
 
     public boolean contarTipoSala(String tipo) {

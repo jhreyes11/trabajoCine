@@ -135,11 +135,11 @@ public class GestionVendedores extends javax.swing.JFrame {
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
-        /*MostrarPelicula frmMostrarPelicula=new MostrarPelicula();
-        frmMostrarPelicula.setFrmGestionPeliculas(this);
-        frmMostrarPelicula.setVisible(true);
+        MostrarVendedor frmMostrarVendedor=new MostrarVendedor();
+        frmMostrarVendedor.setFrmGestionVendedor(this);
+        frmMostrarVendedor.setVisible(true);
         this.setVisible(false);        
-        */
+        
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -147,7 +147,8 @@ public class GestionVendedores extends javax.swing.JFrame {
         EliminarVendedor frmEliminarVendedor=new EliminarVendedor();
         frmEliminarVendedor.setFrmGestionVendedores(this);
         frmEliminarVendedor.setVisible(true);
-        this.setVisible(false);       
+        this.setVisible(false);
+        
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**

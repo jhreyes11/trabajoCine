@@ -15,30 +15,30 @@ import javax.swing.JOptionPane;
  *
  * @author miguel
  */
-public class EliminarVendedor extends javax.swing.JFrame {
+public class MostrarVendedor extends javax.swing.JFrame {
 
     /**
      * Creates new form EliminarSala
      */
-    GestionVendedores frmGestionVendedores;  
+    GestionVendedores frmGestionVendedor;  
 
-    public GestionVendedores getFrmGestionVendedores() {
-        return frmGestionVendedores;
+    public GestionVendedores getFrmGestionVendedor() {
+        return frmGestionVendedor;
     }
 
-    public void setFrmGestionVendedores(GestionVendedores frmGestionVendedores) {
-        this.frmGestionVendedores = frmGestionVendedores;
+    public void setFrmGestionVendedor(GestionVendedores frmGestionVendedor) {
+        this.frmGestionVendedor = frmGestionVendedor;
         cboxCedula.removeAllItems();
-        ArrayList<Vendedor> vendedores=frmGestionVendedores.getFrmPrincipal().getCine().retornarVendedores();    
+        ArrayList<Vendedor> vendedores=frmGestionVendedor.getFrmPrincipal().getCine().retornarVendedores();    
         for (Vendedor vend : vendedores) {
             cboxCedula.addItem(vend.getCedula());
-        }       
-    }          
-    
+        }
+    }
+               
     /**
      * Creates new form AgregarSala
      */    
-    public EliminarVendedor() {
+    public MostrarVendedor() {
         initComponents();
     }
 
@@ -60,11 +60,11 @@ public class EliminarVendedor extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Imprint MT Shadow", 0, 14)); // NOI18N
-        jLabel1.setText("Eliminar Vendedor");
+        jLabel1.setText("Mostrar Vendedor");
 
         jLabel3.setText("Cedula Vendedor");
 
-        jButton1.setText("Eliminar");
+        jButton1.setText("Mostrar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -90,9 +90,9 @@ public class EliminarVendedor extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(25, 25, 25)
+                        .addGap(11, 11, 11)
                         .addComponent(jLabel3)
-                        .addGap(28, 28, 28)
+                        .addGap(42, 42, 42)
                         .addComponent(cboxCedula, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addGap(76, 76, 76))
@@ -122,23 +122,20 @@ public class EliminarVendedor extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        
         try
         {
-            int cedula=(int)cboxCedula.getModel().getSelectedItem();
-            if(frmGestionVendedores.getFrmPrincipal().getCine().eliminarVendedor(cedula))
-            {
-                JOptionPane.showMessageDialog(jButton1, "Vendedor eliminado con exito !");
-            
-                this.setVisible(false);
-                frmGestionVendedores.setVisible(true);
-            }
+                        
+            String info=frmGestionVendedor.getFrmPrincipal().getCine().mostrarVendedor((int)cboxCedula.getModel().getSelectedItem());
+            if(info.equals("")==false)            
+                JOptionPane.showMessageDialog(jButton1, info);                            
             else
-                JOptionPane.showMessageDialog(jButton1, "El Vendedor NO Existe");
+                JOptionPane.showMessageDialog(jButton1, "El vendedor NO Existe");
             
         }
         catch(Exception ex)
         {
-            JOptionPane.showMessageDialog(jButton1, "No especifico el vendedor a eliminar");                        
+            JOptionPane.showMessageDialog(jButton1, "Se presento el error: "+ex.getMessage());                        
         }        
 
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -146,7 +143,7 @@ public class EliminarVendedor extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
-        frmGestionVendedores.setVisible(true);
+        frmGestionVendedor.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
@@ -166,14 +163,22 @@ public class EliminarVendedor extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(EliminarVendedor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MostrarVendedor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(EliminarVendedor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MostrarVendedor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(EliminarVendedor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MostrarVendedor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(EliminarVendedor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MostrarVendedor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -186,7 +191,7 @@ public class EliminarVendedor extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new EliminarVendedor().setVisible(true);
+                new MostrarVendedor().setVisible(true);
             }
         });
     }
