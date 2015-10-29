@@ -60,7 +60,7 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setText("Gestionar Sillas");
+        jButton2.setText("Gestionar Vendedores");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -183,6 +183,10 @@ public class Principal extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+        GestionVendedores frmGestionarVendedores=new GestionVendedores();
+        frmGestionarVendedores.setFrmPrincipal(this);
+        frmGestionarVendedores.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
