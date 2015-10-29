@@ -49,13 +49,12 @@ public class Cine {
         return "No existe una sala con el número insertado\n";
     }
 
-    public boolean agregarPelicula(String nombre, String duracion, String genero, String formato, int numeroSala) {
+    public void agregarPelicula(String nombre, String duracion, String genero, String formato, int numeroSala) throws Exception {
+        validarSala(formato,numeroSala);
         if (peliculas.size() < 5) {
             Pelicula pel = new Pelicula(nombre, duracion, genero, formato, numeroSala);
             peliculas.add(pel);
-            return true;
         }
-        return false;
     }
 
     public boolean eliminarPelicula(String nombre) {
@@ -130,4 +129,13 @@ public class Cine {
         this.peliculas = peliculas;
     }
 
+    public void validarSala(String formato,int numero) throws Exception{
+        for(int i=0;i<salas.size();i++){
+            if(salas.get(i).getTipo().equals(formato) && salas.get(i).getNumero()==numero){
+                return;
+            }
+            
+        }
+        throw new Exception("La sala no soporta este formato");  
+    }
 }
