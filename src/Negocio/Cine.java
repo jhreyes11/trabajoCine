@@ -97,6 +97,10 @@ public class Cine {
         return false;
     }
 
+    public ArrayList<Vendedor> retornarVendedores(){
+        return vendedores;
+    }
+    
     public String mostrarVendedor(int cedula) {
         int pos = buscarVendedor(cedula);
         if (pos != -1) {
