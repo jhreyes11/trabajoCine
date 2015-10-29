@@ -7,10 +7,7 @@ package Negocio;
 
 import java.util.ArrayList;
 
-/**
- *
- * @author Jhon
- */
+
 public class Sala {
 
     private String Tipo;
@@ -96,7 +93,7 @@ public class Sala {
             }
     }
     
-    static void asignarUbicacionSillas() {
+    public void asignarUbicacionSillas() {
         String[] numeros = "1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20".split(",");
         String[] letras = "A,B,C,D,E,F,G,H,I,J,K".split(",");
         int cont=0;
@@ -106,6 +103,7 @@ public class Sala {
                 cont+=1;
             }
         }
+        
     }
 
 }
