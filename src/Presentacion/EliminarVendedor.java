@@ -29,11 +29,10 @@ public class EliminarVendedor extends javax.swing.JFrame {
     public void setFrmGestionVendedores(GestionVendedores frmGestionVendedores) {
         this.frmGestionVendedores = frmGestionVendedores;
         cboxCedula.removeAllItems();
-        /*ArrayList<Vendedor> vendedores=frmGestionVendedores.getFrmPrincipal().getCine();    
+        ArrayList<Vendedor> vendedores=frmGestionVendedores.getFrmPrincipal().getCine().retornarVendedores();    
         for (Vendedor vend : vendedores) {
             cboxCedula.addItem(vend.getCedula());
-        }
-        */
+        }       
     }          
     
     /**
@@ -61,9 +60,9 @@ public class EliminarVendedor extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Imprint MT Shadow", 0, 14)); // NOI18N
-        jLabel1.setText("Eliminar Pelicula");
+        jLabel1.setText("Eliminar Vendedor");
 
-        jLabel3.setText("Nombre Pelicula");
+        jLabel3.setText("Nombre Vendedor");
 
         jButton1.setText("Eliminar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -125,21 +124,21 @@ public class EliminarVendedor extends javax.swing.JFrame {
         // TODO add your handling code here:
         try
         {
-                        
-            if(frmGestionPeliculas.getFrmPrincipal().getCine().eliminarPelicula((String)cboxCedula.getModel().getSelectedItem()))
+            int cedula=Integer.parseInt((String)cboxCedula.getModel().getSelectedItem());
+            if(frmGestionVendedores.getFrmPrincipal().getCine().eliminarVendedor(cedula))
             {
-                JOptionPane.showMessageDialog(jButton1, "Pelicula Eliminada con exito !");
+                JOptionPane.showMessageDialog(jButton1, "Vendedor eliminado con exito !");
             
                 this.setVisible(false);
-                frmGestionPeliculas.setVisible(true);
+                frmGestionVendedores.setVisible(true);
             }
             else
-                JOptionPane.showMessageDialog(jButton1, "La Pelicula no Existe");
+                JOptionPane.showMessageDialog(jButton1, "El Vendedor NO Existe");
             
         }
         catch(Exception ex)
         {
-            JOptionPane.showMessageDialog(jButton1, "Se presento el error: "+ex.getMessage());                        
+            JOptionPane.showMessageDialog(jButton1, "No especifico el vendedor a eliminar");                        
         }        
 
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -147,7 +146,7 @@ public class EliminarVendedor extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
-        frmGestionPeliculas.setVisible(true);
+        frmGestionVendedores.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
