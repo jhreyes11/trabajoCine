@@ -17,7 +17,7 @@ public class Venta {
     private int numSala;
 
     public String tostring() {
-        String cadena = "Numero Boleto: " + this.numBoleto + "\nFecha de la venta: " + this.fecha + "Numero de sala: " + this.numSala + "\nUbicación de la silla: " + this.ubicacionSilla;
+        String cadena = "Numero Boleto: " + this.numBoleto + "\nFecha de la venta: " + this.fecha + "Numero de sala: " + this.numSala + "\nUbicación de la silla: " + this.ubicacionSilla + "\nPrecio del boleto: " +this.calcularPrecio(fecha);
         return cadena;
     }
 
@@ -25,11 +25,20 @@ public class Venta {
         this.numBoleto = numBoleto;
         this.fecha = fecha;
         this.ubicacionSilla = ubicacionSilla;
-        this.numSala = numSala;
-        
+        this.numSala = numSala;  
+    }    
+    
+    public float calcularPrecio(String formatoPelicula){
+        if(formatoPelicula.equals("2D")){
+            return 7000;
+        }else{
+            if(formatoPelicula.equals("3D")){
+                return 15000;
+            }else{
+                return 0;
+            }
+        }
     }
-    
-    
     
     public int getNumBoleto() {
         return numBoleto;
@@ -54,5 +63,4 @@ public class Venta {
     public void setUbicacionSilla(String ubicacionSilla) {
         this.ubicacionSilla = ubicacionSilla;
     }
-
 }
