@@ -74,7 +74,7 @@ public class Cine {
             String pel = peliculas.get(pos).tostring();
             return pel;
         }
-        return "No se registró ninguna película con el nombre " + nombre;
+        return "";
     }
 
     public boolean contarTipoSala(String tipo) {

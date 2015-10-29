@@ -5,6 +5,8 @@
  */
 package Presentacion;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Jhon
@@ -55,6 +57,11 @@ public class GestionPeliculas extends javax.swing.JFrame {
         });
 
         jButton2.setText("Eliminar Pelicula");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton4.setText("Regresar");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -64,6 +71,11 @@ public class GestionPeliculas extends javax.swing.JFrame {
         });
 
         jButton5.setText("Mostrar Pelicula");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("GESTION PELICULAS");
 
@@ -120,6 +132,22 @@ public class GestionPeliculas extends javax.swing.JFrame {
         this.frmPrincipal.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+        MostrarPelicula frmMostrarPelicula=new MostrarPelicula();
+        frmMostrarPelicula.setFrmGestionPeliculas(this);
+        frmMostrarPelicula.setVisible(true);
+        this.setVisible(false);        
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        EliminarPelicula frmEliminarPelicula=new EliminarPelicula();
+        frmEliminarPelicula.setFrmGestionPeliculas(this);
+        frmEliminarPelicula.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments

@@ -183,7 +183,7 @@ public class AgregarPelicula extends javax.swing.JFrame {
         }
         catch(Exception ex)
         {
-            JOptionPane.showMessageDialog(btnAgregar,ex.getMessage());                        
+            JOptionPane.showMessageDialog(btnAgregar, ex.getMessage());                        
         } 
     }//GEN-LAST:event_btnAgregarActionPerformed
 
