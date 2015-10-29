@@ -98,7 +98,7 @@ public class Cine {
     }
 
     public ArrayList<Vendedor> retornarVendedores(){
-        return vendedores;
+        return this.vendedores;
     }
     
     public String mostrarVendedor(int cedula) {
