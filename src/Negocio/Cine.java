@@ -79,9 +79,13 @@ public class Cine {
         return "";
     }
 
-    public void agregarVendedor(String apellido, String direccion, String telefono, int cedula) {
+    public boolean agregarVendedor(String apellido, String direccion, String telefono, int cedula) {
         Vendedor v = new Vendedor(apellido, direccion, telefono, cedula);
-        vendedores.add(v);
+        if(buscarVendedor(cedula)!=-1){            
+            vendedores.add(v);
+            return true;
+        }
+        return false;
     }
 
     public boolean eliminarVendedor(int cedula) {
