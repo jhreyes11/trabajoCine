@@ -49,12 +49,14 @@ public class Cine {
         return "No existe una sala con el número insertado\n";
     }
 
-    public void agregarPelicula(String nombre, String duracion, String genero, String formato, int numeroSala) throws Exception {
+    public boolean agregarPelicula(String nombre, String duracion, String genero, String formato, int numeroSala) throws Exception {
         validarSala(formato,numeroSala);
         if (peliculas.size() < 5) {
             Pelicula pel = new Pelicula(nombre, duracion, genero, formato, numeroSala);
             peliculas.add(pel);
+            return true;
         }
+        return false;
     }
 
     public boolean eliminarPelicula(String nombre) {

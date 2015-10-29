@@ -19,14 +19,19 @@ public class AgregarPelicula extends javax.swing.JFrame {
     /**
      * Creates new form AgregarSala
      */
-    GestionSalas frmGestionSalas;
+    GestionPeliculas frmGestionPeliculas;
 
-    public GestionSalas getFrmGestionSalas() {
-        return frmGestionSalas;
+    public GestionPeliculas getFrmGestionPeliculas() {
+        return frmGestionPeliculas;
     }
 
-    public void setFrmGestionSalas(GestionSalas frmGestionSalas) {
-        this.frmGestionSalas = frmGestionSalas;                        
+    public void setFrmGestionPeliculas(GestionPeliculas frm) {
+        this.frmGestionPeliculas = frm; 
+        cboxNumSala.removeAllItems();
+        ArrayList<Sala> salas=frmGestionPeliculas.getFrmPrincipal().getCine().getSalas();    
+        for (Sala sala : salas) {
+            cboxNumSala.addItem(sala.getNumero());
+        }
     }
     
     public AgregarPelicula()
@@ -50,11 +55,11 @@ public class AgregarPelicula extends javax.swing.JFrame {
         txtNombre = new javax.swing.JTextField();
         txtDuracion = new javax.swing.JTextField();
         txtGenero = new javax.swing.JTextField();
-        txtFormato = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        txtNumSilla = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
+        cboxNumSala = new javax.swing.JComboBox();
+        cboxFormato = new javax.swing.JComboBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -80,7 +85,9 @@ public class AgregarPelicula extends javax.swing.JFrame {
 
         jLabel4.setText("Formato");
 
-        jLabel5.setText("Numero Silla");
+        jLabel5.setText("Numero Sala");
+
+        cboxFormato.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "2D", "3D" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -98,21 +105,22 @@ public class AgregarPelicula extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1)
                             .addComponent(jLabel2)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jLabel5)
-                                    .addGap(66, 66, 66)
-                                    .addComponent(txtNumSilla, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel3)
-                                        .addComponent(jLabel4))
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(txtFormato, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(txtGenero, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(txtDuracion, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel3)
+                                            .addComponent(jLabel4))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(jLabel5)
+                                        .addGap(66, 66, 66)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtGenero, javax.swing.GroupLayout.DEFAULT_SIZE, 152, Short.MAX_VALUE)
+                                    .addComponent(txtDuracion, javax.swing.GroupLayout.DEFAULT_SIZE, 152, Short.MAX_VALUE)
+                                    .addComponent(txtNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 152, Short.MAX_VALUE)
+                                    .addComponent(cboxNumSala, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(cboxFormato, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
                 .addContainerGap(57, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -132,15 +140,15 @@ public class AgregarPelicula extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(txtGenero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel4)
-                    .addComponent(txtFormato, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cboxFormato, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(txtNumSilla, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                    .addComponent(cboxNumSala, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAgregar)
                     .addComponent(btnCancelar))
@@ -153,17 +161,25 @@ public class AgregarPelicula extends javax.swing.JFrame {
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
-        frmGestionSalas.setVisible(true);
+        frmGestionPeliculas.setVisible(true);
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
         // TODO add your handling code here:
         try
-        {
+        {                        
+            if(this.frmGestionPeliculas.getFrmPrincipal().getCine().agregarPelicula(txtNombre.getText(), txtDuracion.getText(), txtGenero.getText(), (String) cboxFormato.getModel().getSelectedItem(),(int)cboxNumSala.getModel().getSelectedItem()))
+            {
+                JOptionPane.showMessageDialog(btnAgregar,"Pelicula agregada con exito");                        
+                this.setVisible(false);
+                frmGestionPeliculas.setVisible(true);
+                
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(btnAgregar,"No se agrefo la pelicula. Solo pueden haber 5 peliculas en cartelera");                                        
+            }
             
-            
-            this.setVisible(false);
-            frmGestionSalas.setVisible(true);
         }
         catch(Exception ex)
         {
@@ -209,15 +225,15 @@ public class AgregarPelicula extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAgregar;
     private javax.swing.JButton btnCancelar;
+    private javax.swing.JComboBox cboxFormato;
+    private javax.swing.JComboBox cboxNumSala;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JTextField txtDuracion;
-    private javax.swing.JTextField txtFormato;
     private javax.swing.JTextField txtGenero;
     private javax.swing.JTextField txtNombre;
-    private javax.swing.JTextField txtNumSilla;
     // End of variables declaration//GEN-END:variables
 }

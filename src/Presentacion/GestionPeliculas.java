@@ -57,6 +57,11 @@ public class GestionPeliculas extends javax.swing.JFrame {
         jButton2.setText("Eliminar Pelicula");
 
         jButton4.setText("Regresar");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         jButton5.setText("Mostrar Pelicula");
 
@@ -104,9 +109,17 @@ public class GestionPeliculas extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        
-        
+        AgregarPelicula frmAgregarPelicula=new AgregarPelicula();
+        frmAgregarPelicula.setFrmGestionPeliculas(this);
+        frmAgregarPelicula.setVisible(true);
+        this.setVisible(false);                
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        this.frmPrincipal.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments
