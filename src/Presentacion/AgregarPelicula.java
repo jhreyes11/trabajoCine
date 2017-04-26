@@ -10,10 +10,6 @@ import Negocio.Sala;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author miguel
- */
 public class AgregarPelicula extends javax.swing.JFrame {
 
     /**
